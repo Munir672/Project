@@ -1,0 +1,507 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #112c04;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Home Container */
+.home-container {
+    width: 100%; /* Full width */
+    padding: 40px 20px;
+    background: #041a05;
+    color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-sizing: border-box; /* Ensure padding is included */
+}
+
+/* Navigation Bar */
+.navigation {
+    background-color: #007bff;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.navigation ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.navigation ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.navigation ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.navigation ul li a:hover {
+    color: #f0db4f;
+}
+
+/* Header Section */
+.home-header {
+    margin-top: 20px;
+}
+
+.home-header h1 {
+    font-size: 2.5em; /* Larger heading */
+    color: #c5a019;
+    margin-bottom: 10px;
+}
+
+.home-header p {
+    font-size: 1.2em;
+    color: #c5a019;
+    margin-top: 10px;
+}
+
+/* Button Container */
+.button-container {
+    margin-top: 30px;
+}
+
+/* Buttons */
+.btn {
+    padding: 12px 24px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+/* Login Button */
+.login-btn {
+    background-color: #28a745;
+    color: rgb(255, 255, 255);
+}
+
+.login-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Sign Up Button */
+.signup-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.signup-btn:hover {
+    background-color: #1e7e34;
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .navigation ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+
+    .home-header h1 {
+        font-size: 2em; /* Smaller heading on small screens */
+    }
+
+    .home-header p {
+        font-size: 1em;
+    }
+}
+
+/* General Styling for Forms */
+.auth-container {
+    background-color: #243a18;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.auth-container .form-card {
+    background: #000100;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 380px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box; /* Ensures padding is included in the width */
+    text-align: center;
+}
+
+/* Form Header */
+.auth-container h2 {
+    font-size: 2em;
+    color: #ddbc16;
+    margin-bottom: 20px;
+}
+
+/* Form Layout */
+.auth-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Form Labels */
+.auth-container label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #ddbc16;
+}
+
+/* Form Input Fields */
+.auth-container input {
+    padding: 12px;
+    margin-top: 8px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding is part of the width */
+    transition: border-color 0.3s ease;
+}
+
+.auth-container input:focus {
+    border-color: #55dd16;
+    outline: none;
+}
+
+/* Submit Button */
+.auth-container button {
+    padding: 12px;
+    background-color: #ddbc16;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.auth-container button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Close Button */
+.auth-container .close-btn {
+    margin-top: 10px;
+    background-color: #cea017;
+    color: rgb(1, 1, 1);
+    padding: 8px 15px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+.auth-container .close-btn:hover {
+    background-color: #d63030;
+}
+
+/* Footer Text (like "forgot password") */
+.auth-container p {
+    font-size: 14px;
+    color: #007bff;
+    cursor: pointer;
+    margin-top: 15px;
+    text-decoration: underline;
+}
+
+/* On hover, change text color */
+.auth-container p:hover {
+    color: #0056b3;
+}
+
+/* Sign-up Specific Text */
+.auth-container .signup-link {
+    margin-top: 15px;
+    color: #007bff;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.auth-container .signup-link:hover {
+    color: #0056b3;
+}
+
+/* Footer Styling */
+.footer {
+    background-color: #041a05;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+.footer .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer .footer-links {
+    margin-top: 10px;
+}
+
+.footer .footer-links a {
+    color: #f0db4f;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.footer .footer-links a:hover {
+    color: #007bff;
+}
+
+/* Dashboard container */
+.dashboard-container {
+  background-color: #f4f7fc;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Heading */
+.dashboard-container h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.dashboard-container p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* Dashboard content section */
+.dashboard-content {
+  width: 100%;
+  max-width: 900px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.dashboard-content h3 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Log out button */
+.logout-btn {
+  background-color: #e63946;
+  color: #fff;
+  padding: 12px 25px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: #d62828;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .dashboard-container h2 {
+    font-size: 2rem;
+  }
+
+  .dashboard-container p {
+    font-size: 1rem;
+  }
+
+  .dashboard-content {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .logout-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.2rem;
+  }
+}
+
+/* Hobby List */
+.hobby-list {
+  margin-top: 20px;
+  background-color: #f4f7fc;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hobby-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.hobby-list li {
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hobby-list li h3 {
+  font-size: 1.6rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.hobby-list li p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.hobby-list button {
+  background-color: #28a745;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.hobby-list button:hover {
+  background-color: #1e7e34;
+}
+
+.hobby-list .progress-btn {
+  background-color: #ddbc16;
+  margin-left: 10px;
+}
+
+.hobby-list .progress-btn:hover {
+  background-color: #c29e16;
+}
+
+/* Add/Edit Hobby Form */
+.form-modal {
+  background: #041a05;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 450px;
+  width: 100%;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  color: white;
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+/* Add/Edit Hobby Form Header */
+.form-modal h2 {
+  color: #ddbc16;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Add/Edit Hobby Form Fields */
+.form-modal label {
+  color: #ddbc16;
+  font-size: 16px;
+  margin-bottom: 8px;
+  text-align: left;
+  display: block;
+}
+
+/* Add/Edit Hobby Form */
+.form-modal {
+  background: #041a05;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 450px;
+  width: 100%;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  color: white;
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+/* Add/Edit Hobby Form Header */
+.form-modal h2 {
+  color: #ddbc16;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Add/Edit Hobby Form Fields */
+.form-modal label {
+  color: #ddbc16;
+  font-size: 16px;
+  margin-bottom: 8px;
+  text-align: left;
+  display: block;
+}
+
+/* Form input fields */
+.form-field {
+  padding: 12px;
+  margin-top: 8px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.form-field:focus {
+  border-color: #55dd16;
+  outline: none;
+}
+
+/* Submit Button */
+.form-btn {
+  padding: 12px;
+  background-color: #ddbc16;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.form-btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
