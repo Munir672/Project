@@ -505,3 +505,188 @@ body {
   transform: scale(1.05);
 }
 
+/* General Dashboard Styling */
+.dashboard-container {
+  background-color: #f4f7fc;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Heading Styles */
+.dashboard-container h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.dashboard-container p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* Content Section */
+.dashboard-content {
+  width: 100%;
+  max-width: 900px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.dashboard-content h3 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Buttons */
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-bottom: 15px;
+}
+
+.add-hobby-btn {
+  background-color: #007bff;
+  color: white;
+}
+.add-hobby-btn:hover {
+  background-color: #0056b3;
+}
+
+.logout-btn {
+  background-color: #e63946;
+  color: white;
+}
+.logout-btn:hover {
+  background-color: #d62828;
+}
+
+/* Hobby List */
+.hobby-list {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+}
+
+.hobby-list li {
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hobby-list li h4 {
+  font-size: 1.6rem;
+  color: #333;
+  margin: 0;
+}
+
+.hobby-list li p {
+  font-size: 1.2rem;
+  color: #666;
+  margin: 0;
+}
+
+.hobby-list button {
+  background-color: #28a745;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.hobby-list button:hover {
+  background-color: #1e7e34;
+}
+
+.progress-btn {
+  background-color: #ddbc16;
+  margin-left: 10px;
+}
+
+.progress-btn:hover {
+  background-color: #c29e16;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard-container h2 {
+    font-size: 2rem;
+  }
+
+  .dashboard-container p {
+    font-size: 1rem;
+  }
+
+  .dashboard-content {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .btn {
+    width: 100%;
+    font-size: 1.2rem;
+  }
+}
+
+
+.hobby-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 10px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.hobby-container h3 {
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.hobby-container p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.hobby-container button {
+  margin-top: 10px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: #28a745;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.hobby-container button:hover {
+  background-color: #1e7e34;
+}
+
+h3{
+  text-align: center;
+}

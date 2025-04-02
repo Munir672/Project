@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const Home = ({ toggleForm }) => {
     return (
         <div className="home-container">
@@ -14,8 +15,7 @@ const Home = ({ toggleForm }) => {
                 <button className="btn login-btn" onClick={() => toggleForm("login")}>Log In</button>
                 <button className="btn signup-btn" onClick={() => toggleForm("signup")}>Sign Up</button>
             </div>
-
-        
+            
         </div>
     );
 };

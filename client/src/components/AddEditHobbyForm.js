@@ -5,33 +5,34 @@ const AddEditHobbyForm = ({ userId, hobby, onSave }) => {
   const [description, setDescription] = useState(hobby ? hobby.description : '');
   const [progress, setProgress] = useState(hobby ? hobby.progress : '');
   
+  const handleSave = async () => { //when this called , we handle saving hobby
+    // Include progress in the data sent to the backend
 
-  const handleSave = async () => {
-    const hobbyData = { name, description, userId };
+    const hobbyData = { name, description, userId, progress };
   
     console.log('Saving hobby with data:', hobbyData); // Debugging message
   
-    if (!userId) {
+    if (!userId) { //if we dont have userId send error
       console.error('User ID is missing!'); // Debugging message if userId is not present
     }
   
     try {
-      let response;
+      let response; //response variable
   
-      if (hobby) {
+      if (hobby) { //if we have hobby
         console.log('Updating existing hobby with ID:', hobby._id); // Debugging message
-        response = await fetch(`/api/hobbies/${hobby._id}`, {
+        response = await fetch(`/api/hobbies/${hobby._id}`, { //get that hobby with that id
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(hobbyData),
         });
-      } else {
+      } else { //if we dont have hobby we add
         console.log('Adding new hobby'); // Debugging message
         console.log('hobbyData being sent:', hobbyData); // Check the hobby data before sending
 
-        response = await fetch('/api/hobbies', {
+        response = await fetch('/api/hobbies', { //we post hobby to that api  and then store the response
   
           method: 'POST',
           headers: {
@@ -40,19 +41,23 @@ const AddEditHobbyForm = ({ userId, hobby, onSave }) => {
           body: JSON.stringify(hobbyData),
         });
       }
-  
+      console.log('API response status:', response.status);  // Log the status code for more details
+     
       if (response.ok) {
-        console.log('Hobby saved successfully'); // Debugging message
-        onSave();
+        console.log('Hobby saved successfully');
+        const savedHobby = await response.json();
+        
+       //Access the hobby object from data
+        const hobby = savedHobby.data; // Here we access data.data
+        onSave(hobby); // Pass the hobby to the onSave function (Dashboard)
       } else {
-        console.error('Failed to save hobby, response:', response); // Debugging message
+        console.error('Failed to save hobby, response:', response);
       }
     } catch (error) {
       console.error('Error saving hobby:', error); // Debugging message
     }
   };
   
-
   useEffect(() => {
     console.log('Component mounted or hobby prop changed:', hobby); // Debugging message
   }, [hobby]);

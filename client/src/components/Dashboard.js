@@ -1,122 +1,142 @@
-import React, { useState, useEffect } from "react"; //importing useState and useEffect
-import HobbyList from "./HobbyList"; //import HobbyList component to display
-import AddEditHobbyForm from "./AddEditHobbyForm"; //import AddEditHobby to be able to add and edit
-import ProgressModal from "./Progress"; //import progressModal to add progress to the existing
+import React, { useState, useEffect } from "react";
+import HobbyList from "./HobbyList";
+import AddEditHobbyForm from "./AddEditHobbyForm";
+import ProgressModal from "./Progress";
 
-const Dashboard = ({ user, onLogout }) => { // getting the user and onLogout from parent
-  const [hobbies, setHobbies] = useState([]);  // List of hobbies
-  const [selectedHobby, setSelectedHobby] = useState(null);  // Hobby selected for editing
-  const [showForm, setShowForm] = useState(false);  // Whether to show the add/edit form
-  const [showProgressModal, setShowProgressModal] = useState(false); // Whether to show the progress modal
+const Dashboard = ({ user, onLogout }) => {
+  const [hobbies, setHobbies] = useState([]);
+  const [selectedHobby, setSelectedHobby] = useState(null);
+  const [showForm, setShowForm] = useState(false);
+  const [showProgressModal, setShowProgressModal] = useState(false);
 
-  // Fetch hobbies when the component mounts or user.id changes
   useEffect(() => {
-    if (!user || !user._id) { //if there is no user or no userID, return
-      console.error('User not available or missing _id');
+    if (!user || !user._id) {
+      console.error("User not available or missing _id");
       return;
     }
 
     const fetchHobbies = async () => {
-      console.log(`Fetching hobbies for userId: ${user._id}`);
       try {
-        const response = await fetch(`/api/hobbies/${user._id}`);//using the user id to fetch that user's hobby
-        if (response.ok) { //if response is good
-          const data = await response.json(); // put the servers response to data 
-          setHobbies(data.hobbies); //take the hobbies from data and put it in setHobbies
+        console.log("Fetching hobbies for userId:", user._id);
+        const response = await fetch(`/api/hobbies/${user._id}`);
+
+        if (response.ok) {
+          const data = await response.json();
+          console.log("Fetched hobbies:", JSON.stringify(data.hobbies, null, 2));
+          setHobbies(data.hobbies || []);
         } else {
-          console.error('Failed to fetch hobbies'); 
+          console.error("Failed to fetch hobbies");
         }
       } catch (error) {
-        console.error('Error fetching hobbies:', error);
+        console.error("Error fetching hobbies:", error);
       }
     };
 
     fetchHobbies();
-  }, [user._id]); //if we have userId or it changes
+  }, [user._id]);
 
-  // Handle adding or editing a hobby
   const handleSaveHobby = async (hobby) => {
-    console.log('Saving hobby data:', hobby); // Debugging message
-    try {
-      const method = selectedHobby ? 'PUT' : 'POST'; //if the selected hobby is true the method is put if not its post
-      const url = selectedHobby 
-        ? `/api/hobbies/${selectedHobby._id}` //if selectedHobby = true / url is this
-        : `/api/hobbies`; //if not this
+    console.log("Attempting to save hobby:", hobby);
+    if (!hobby || !hobby.name) {
+      console.error("Hobby data is missing or incomplete:", hobby);
+      return;
+    }
 
-      const response = await fetch(url, { //now we fetch from that url variable
-        method: method, //method variable
+    try {
+      const method = selectedHobby ? "PUT" : "POST";
+      const url = selectedHobby ? `/api/hobbies/${selectedHobby._id}` : "/api/hobbies";
+
+      const response = await fetch(url, {
+        method: method,
         headers: {
-          'Content-Type': 'application/json', //format is going to be json
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ //convert to json format
+        body: JSON.stringify({
           name: hobby.name,
           description: hobby.description,
           progress: hobby.progress,
-          userId: user._id, // Ensure the userId is passed correctly
+          userId: user._id,
         }),
       });
 
       if (response.ok) {
-        const data = await response.json(); //convert the response to json
-        console.log('Hobby saved successfully:', data); //debug message
-        if (selectedHobby) { //if a hobby is selected
-          setHobbies(hobbies => hobbies.map(h => h._id === selectedHobby._id ? data.hobby : h));//going through hobbies if a hobby is matched we replace that with new one
+        const hobbydata = await response.json();
+        const hobby = hobbydata.data;
+        console.log("Hobby saved successfully:", JSON.stringify(hobby, null, 2));
 
-        } else {
-          setHobbies([...hobbies, data.hobby]);// else add the hobby to the array of the hobbies
-        }
-        setShowForm(false); // Close the form after saving
-        setSelectedHobby(null); // Reset selected hobby
+        setHobbies((prevHobbies) => {
+          if (selectedHobby) {
+            return prevHobbies.map((h) => (h._id === selectedHobby._id ? hobby : h));
+          } else {
+            return [...prevHobbies, hobby];
+          }
+        });
+
+        setShowForm(false);
+        setSelectedHobby(null);
       } else {
-        console.error('Failed to save hobby');
+        console.error("Failed to save hobby");
       }
     } catch (error) {
-      console.error('Error saving hobby:', error);
+      console.error("Error saving hobby:", error);
     }
   };
 
-  // Handle selecting a hobby for editing or progress tracking
-  const handleSelectHobby = (hobby) => {
-    setSelectedHobby(hobby);
-    setShowForm(true); // Show form to edit hobby
+  const handleDeleteHobby = async (hobbyId) => {
+    try {
+      const response = await fetch(`/api/hobbies/${hobbyId}`, { method: "DELETE" });
+
+      if (!response.ok) {
+        throw new Error("Failed to delete hobby");
+      }
+
+      setHobbies((prevHobbies) => prevHobbies.filter((hobby) => hobby._id !== hobbyId));
+    } catch (error) {
+      console.error("Error deleting hobby:", error);
+    }
   };
 
-  // Toggle progress modal
+  const handleSelectHobby = (hobby) => {
+    console.log("Selected Hobby:", hobby);
+    setSelectedHobby(hobby);
+    setShowForm(true);
+  };
+
   const toggleProgressModal = () => {
-    setShowProgressModal(!showProgressModal); //not show progress modal
+    console.log("Toggling progress modal. Current state:", showProgressModal);
+    setShowProgressModal(!showProgressModal);
   };
 
   return (
     <div className="dashboard-container">
-      <h2>Welcome to your Dashboard, {user.username}!</h2>
+      <h2>Welcome {user.username}!</h2>
       <p>Email: {user.email}</p>
 
       <div className="dashboard-content">
+        <button onClick={() => setShowForm(true)} className="btn add-hobby-btn">
+          Add Hobby
+        </button>
+
         <h3>Your Hobbies</h3>
-        <button onClick={() => setShowForm(true)} className="btn add-hobby-btn">Add Hobby</button>
-        
-        <HobbyList 
-          hobbies={hobbies} 
-          onSelectHobby={handleSelectHobby} //Passing param
+
+        <HobbyList
+          hobbies={hobbies}
+          onSelectHobby={handleSelectHobby}
           onTrackProgress={toggleProgressModal}
+          onDeleteHobby={handleDeleteHobby}
         />
       </div>
 
       {showForm && (
-        <AddEditHobbyForm 
-          hobby={selectedHobby} 
-          onSave={handleSaveHobby} //passing param
+        <AddEditHobbyForm
+          hobby={selectedHobby}
+          onSave={handleSaveHobby}
           userId={user._id}
-          onClose={() => setShowForm(false)} 
+          onClose={() => setShowForm(false)}
         />
       )}
 
-      {showProgressModal && (
-        <ProgressModal 
-          hobby={selectedHobby} 
-          onClose={toggleProgressModal}
-        />
-      )}
+      {showProgressModal && <ProgressModal hobby={selectedHobby} onClose={toggleProgressModal} />}
 
       <button onClick={onLogout} className="btn logout-btn">
         Log Out

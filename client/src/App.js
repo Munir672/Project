@@ -15,11 +15,6 @@ const App = () => {
     setShowForm(formType); // Set to "login" or "signup" based on the button clicked
   };
 
-  // Close the modal and return to home page view
-  const closeModal = () => {
-    setShowForm(null); // Close the form
-  };
-
   // Handle login action and set the user as logged in
   const handleLogin = (user) => {
     setIsLoggedIn(true);
@@ -41,8 +36,9 @@ const App = () => {
       {!isLoggedIn ? (
         <div>
           <Home toggleForm={toggleForm} />
-          {showForm === "login" && <LogIn closeModal={closeModal} onLogin={handleLogin} />}
-          {showForm === "signup" && <SignUp closeModal={closeModal} />}
+          {showForm === "login" && <LogIn  onLogin={handleLogin} />}
+          {showForm === "signup" && <SignUp />}
+          <footer />
         </div>
       ) : (
         // Show the dashboard page if the user is logged in

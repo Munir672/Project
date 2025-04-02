@@ -76,11 +76,6 @@ const SignUp = ({ closeModal }) => { //passing closeModal as param to the compon
           </button>
         </form>
 
-        {/* Close Modal button */}
-        <button className="close-btn" onClick={closeModal}>
-          Close
-        </button>
-        
       </div>
     </div>
   );
