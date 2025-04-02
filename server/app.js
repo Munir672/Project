@@ -81,29 +81,35 @@ connection.then(() => {
   });
 
   // --- Hobbies Routes ---
-
   // Add Hobby Route
   app.post('/api/hobbies', async (req, res) => {
     const { name, description, userId, progress } = req.body;
-  
-    console.log('Received add hobby request:', req.body); // Debugging message to see request body
-  
+
+    console.log('Received add hobby request:', req.body); // Debugging message
+
+    // Check if required fields are missing
     if (!name || !description || !userId) {
-      console.error('Missing required fields (name, description, or userId)'); // Debugging message
-      console.error(`missing ${userId}`);
-      return res.status(400).json({ message: "All fields are required" });
+      console.error('Missing required fields (name, description, or userId)');
+      return res.status(400).json({ message: "All fields (name, description, userId) are required" });
     }
-  
+
     try {
+      // Prepare the new hobby object
       const newHobby = { name, description, userId, progress: progress || '' };
+      
+      // Insert the new hobby into the database
       const result = await hobbiesCollection.insertOne(newHobby);
+
+      // Log the result and send a success response
+      console.log(`Hobby inserted successfully: ${JSON.stringify(result)}`);
+      res.status(200).json({ message: 'Hobby added successfully', data: newHobby });
       
     } catch (error) {
-      console.error('Error adding hobby:', error); // Debugging message
-      res.status(500).json({ message: 'Error adding hobby', error });
+      // Log the error and send a failure response
+      console.error('Error adding hobby:', error);
+      res.status(500).json({ message: 'Error adding hobby', error: error.message });
     }
   });
-  
 
   // Get hobbies for a user
   app.get('/api/hobbies/:userId', async (req, res) => {

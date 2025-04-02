@@ -259,18 +259,6 @@ body {
   display: flex;
 }
 
-.dashboard-container h2 {
-  color: #333;
-  margin-bottom: 10px;
-  font-size: 2.5rem;
-}
-
-.dashboard-container p {
-  color: #666;
-  margin-bottom: 30px;
-  font-size: 1.1rem;
-}
-
 .dashboard-content {
   background-color: #fff;
   border-radius: 8px;
@@ -279,12 +267,6 @@ body {
   margin-bottom: 30px;
   padding: 20px;
   box-shadow: 0 4px 8px #0000001a;
-}
-
-.dashboard-content h3 {
-  color: #333;
-  margin-bottom: 20px;
-  font-size: 1.8rem;
 }
 
 .logout-btn {
@@ -296,10 +278,6 @@ body {
   padding: 12px 25px;
   font-size: 1rem;
   transition: background-color .3s;
-}
-
-.logout-btn:hover {
-  background-color: #d62828;
 }
 
 @media (width <= 768px) {
@@ -353,21 +331,6 @@ body {
 .hobby-list li p {
   color: #666;
   font-size: 1.2rem;
-}
-
-.hobby-list button {
-  color: #fff;
-  cursor: pointer;
-  background-color: #28a745;
-  border: none;
-  border-radius: 8px;
-  padding: 8px 15px;
-  font-size: 14px;
-  transition: background-color .3s;
-}
-
-.hobby-list button:hover {
-  background-color: #1e7e34;
 }
 
 .hobby-list .progress-btn {
@@ -439,5 +402,186 @@ body {
 .form-btn:hover {
   background-color: #0056b3;
   transform: scale(1.05);
+}
+
+.dashboard-container {
+  background-color: #f4f7fc;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  display: flex;
+}
+
+.dashboard-container h2 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 2.5rem;
+}
+
+.dashboard-container p {
+  color: #666;
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+}
+
+.dashboard-content {
+  background-color: #fff;
+  border-radius: 8px;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 900px;
+  margin-bottom: 30px;
+  padding: 20px;
+  display: flex;
+  box-shadow: 0 4px 8px #0000001a;
+}
+
+.dashboard-content h3 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.btn {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  padding: 12px 24px;
+  font-size: 16px;
+  transition: background-color .3s, transform .2s;
+}
+
+.add-hobby-btn {
+  color: #fff;
+  background-color: #007bff;
+}
+
+.add-hobby-btn:hover {
+  background-color: #0056b3;
+}
+
+.logout-btn {
+  color: #fff;
+  background-color: #e63946;
+}
+
+.logout-btn:hover {
+  background-color: #d62828;
+}
+
+.hobby-list {
+  width: 100%;
+  padding: 0;
+  list-style-type: none;
+}
+
+.hobby-list li {
+  background-color: #fff;
+  border-radius: 8px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 15px;
+  display: flex;
+  box-shadow: 0 2px 4px #0000001a;
+}
+
+.hobby-list li h4 {
+  color: #333;
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.hobby-list li p {
+  color: #666;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.hobby-list button {
+  color: #fff;
+  cursor: pointer;
+  background-color: #28a745;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 15px;
+  font-size: 14px;
+  transition: background-color .3s;
+}
+
+.hobby-list button:hover {
+  background-color: #1e7e34;
+}
+
+.progress-btn {
+  background-color: #ddbc16;
+  margin-left: 10px;
+}
+
+.progress-btn:hover {
+  background-color: #c29e16;
+}
+
+@media (width <= 768px) {
+  .dashboard-container h2 {
+    font-size: 2rem;
+  }
+
+  .dashboard-container p {
+    font-size: 1rem;
+  }
+
+  .dashboard-content {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .btn {
+    width: 100%;
+    font-size: 1.2rem;
+  }
+}
+
+.hobby-container {
+  background-color: #fff;
+  border-radius: 8px;
+  flex-direction: column;
+  margin: 10px 0;
+  padding: 20px;
+  display: flex;
+  box-shadow: 0 2px 4px #0000001a;
+}
+
+.hobby-container h3 {
+  color: #333;
+  font-size: 1.8rem;
+}
+
+.hobby-container p {
+  color: #666;
+  font-size: 1.2rem;
+}
+
+.hobby-container button {
+  color: #fff;
+  cursor: pointer;
+  background-color: #28a745;
+  border: none;
+  border-radius: 8px;
+  margin-top: 10px;
+  padding: 8px 15px;
+  transition: background-color .3s;
+}
+
+.hobby-container button:hover {
+  background-color: #1e7e34;
+}
+
+h3 {
+  text-align: center;
 }
 /*# sourceMappingURL=style.css.map */

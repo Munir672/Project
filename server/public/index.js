@@ -16308,10 +16308,6 @@ const App = ()=>{
     const toggleForm = (formType)=>{
         setShowForm(formType); // Set to "login" or "signup" based on the button clicked
     };
-    // Close the modal and return to home page view
-    const closeModal = ()=>{
-        setShowForm(null); // Close the form
-    };
     // Handle login action and set the user as logged in
     const handleLogin = (user)=>{
         setIsLoggedIn(true);
@@ -16333,28 +16329,30 @@ const App = ()=>{
                         toggleForm: toggleForm
                     }, void 0, false, {
                         fileName: "src/App.js",
-                        lineNumber: 43,
+                        lineNumber: 38,
                         columnNumber: 11
                     }, undefined),
                     showForm === "login" && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _logInDefault.default), {
-                        closeModal: closeModal,
                         onLogin: handleLogin
                     }, void 0, false, {
                         fileName: "src/App.js",
-                        lineNumber: 44,
+                        lineNumber: 39,
                         columnNumber: 36
                     }, undefined),
-                    showForm === "signup" && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _signUpDefault.default), {
-                        closeModal: closeModal
-                    }, void 0, false, {
+                    showForm === "signup" && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _signUpDefault.default), {}, void 0, false, {
                         fileName: "src/App.js",
-                        lineNumber: 45,
+                        lineNumber: 40,
                         columnNumber: 37
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("footer", {}, void 0, false, {
+                        fileName: "src/App.js",
+                        lineNumber: 41,
+                        columnNumber: 11
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/App.js",
-                lineNumber: 42,
+                lineNumber: 37,
                 columnNumber: 9
             }, undefined) : // Show the dashboard page if the user is logged in
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _dashboardDefault.default), {
@@ -16362,18 +16360,18 @@ const App = ()=>{
                 onLogout: handleLogout
             }, void 0, false, {
                 fileName: "src/App.js",
-                lineNumber: 49,
+                lineNumber: 45,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _footerDefault.default), {}, void 0, false, {
                 fileName: "src/App.js",
-                lineNumber: 52,
+                lineNumber: 48,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/App.js",
-        lineNumber: 39,
+        lineNumber: 34,
         columnNumber: 5
     }, undefined);
 };
@@ -16412,20 +16410,20 @@ const Home = ({ toggleForm })=>{
                         children: "Welcome to HobbyApp!"
                     }, void 0, false, {
                         fileName: "src/components/Home.js",
-                        lineNumber: 8,
+                        lineNumber: 9,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                         children: "Discover endless possibilities with us. Let\u2019s bring your ideas to life!"
                     }, void 0, false, {
                         fileName: "src/components/Home.js",
-                        lineNumber: 9,
+                        lineNumber: 10,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Home.js",
-                lineNumber: 7,
+                lineNumber: 8,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -16437,7 +16435,7 @@ const Home = ({ toggleForm })=>{
                         children: "Log In"
                     }, void 0, false, {
                         fileName: "src/components/Home.js",
-                        lineNumber: 14,
+                        lineNumber: 15,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -16446,19 +16444,19 @@ const Home = ({ toggleForm })=>{
                         children: "Sign Up"
                     }, void 0, false, {
                         fileName: "src/components/Home.js",
-                        lineNumber: 15,
+                        lineNumber: 16,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Home.js",
-                lineNumber: 13,
+                lineNumber: 14,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/Home.js",
-        lineNumber: 5,
+        lineNumber: 6,
         columnNumber: 9
     }, undefined);
 };
@@ -18911,15 +18909,6 @@ const LogIn = ({ closeModal, onLogin })=>{
                     fileName: "src/components/LogIn.js",
                     lineNumber: 47,
                     columnNumber: 9
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                    className: "close-btn",
-                    onClick: closeModal,
-                    children: "Close"
-                }, void 0, false, {
-                    fileName: "src/components/LogIn.js",
-                    lineNumber: 69,
-                    columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true, {
@@ -19081,15 +19070,6 @@ const SignUp = ({ closeModal })=>{
                     fileName: "src/components/SignUp.js",
                     lineNumber: 57,
                     columnNumber: 9
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                    className: "close-btn",
-                    onClick: closeModal,
-                    children: "Close"
-                }, void 0, false, {
-                    fileName: "src/components/SignUp.js",
-                    lineNumber: 80,
-                    columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true, {
@@ -19206,54 +19186,56 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react"); //importing useState and useEffect
+var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-var _hobbyList = require("./HobbyList"); //import HobbyList component to display
+var _hobbyList = require("./HobbyList");
 var _hobbyListDefault = parcelHelpers.interopDefault(_hobbyList);
-var _addEditHobbyForm = require("./AddEditHobbyForm"); //import AddEditHobby to be able to add and edit
+var _addEditHobbyForm = require("./AddEditHobbyForm");
 var _addEditHobbyFormDefault = parcelHelpers.interopDefault(_addEditHobbyForm);
-var _progress = require("./Progress"); //import progressModal to add progress to the existing
+var _progress = require("./Progress");
 var _progressDefault = parcelHelpers.interopDefault(_progress);
 var _s = $RefreshSig$();
 const Dashboard = ({ user, onLogout })=>{
     _s();
-    const [hobbies, setHobbies] = (0, _react.useState)([]); // List of hobbies
-    const [selectedHobby, setSelectedHobby] = (0, _react.useState)(null); // Hobby selected for editing
-    const [showForm, setShowForm] = (0, _react.useState)(false); // Whether to show the add/edit form
-    const [showProgressModal, setShowProgressModal] = (0, _react.useState)(false); // Whether to show the progress modal
-    // Fetch hobbies when the component mounts or user.id changes
+    const [hobbies, setHobbies] = (0, _react.useState)([]);
+    const [selectedHobby, setSelectedHobby] = (0, _react.useState)(null);
+    const [showForm, setShowForm] = (0, _react.useState)(false);
+    const [showProgressModal, setShowProgressModal] = (0, _react.useState)(false);
     (0, _react.useEffect)(()=>{
         if (!user || !user._id) {
-            console.error('User not available or missing _id');
+            console.error("User not available or missing _id");
             return;
         }
         const fetchHobbies = async ()=>{
-            console.log(`Fetching hobbies for userId: ${user._id}`);
             try {
-                const response = await fetch(`/api/hobbies/${user._id}`); //using the user id to fetch that user's hobby
+                console.log("Fetching hobbies for userId:", user._id);
+                const response = await fetch(`/api/hobbies/${user._id}`);
                 if (response.ok) {
-                    const data = await response.json(); // put the servers response to data 
-                    setHobbies(data.hobbies); //take the hobbies from data and put it in setHobbies
-                } else console.error('Failed to fetch hobbies');
+                    const data = await response.json();
+                    console.log("Fetched hobbies:", JSON.stringify(data.hobbies, null, 2));
+                    setHobbies(data.hobbies || []);
+                } else console.error("Failed to fetch hobbies");
             } catch (error) {
-                console.error('Error fetching hobbies:', error);
+                console.error("Error fetching hobbies:", error);
             }
         };
         fetchHobbies();
     }, [
         user._id
-    ]); //if we have userId or it changes
-    // Handle adding or editing a hobby
+    ]);
     const handleSaveHobby = async (hobby)=>{
-        console.log('Saving hobby data:', hobby); // Debugging message
+        console.log("Attempting to save hobby:", hobby);
+        if (!hobby || !hobby.name) {
+            console.error("Hobby data is missing or incomplete:", hobby);
+            return;
+        }
         try {
-            const method = selectedHobby ? 'PUT' : 'POST'; //if the selected hobby is true the method is put if not its post
-            const url = selectedHobby ? `/api/hobbies/${selectedHobby._id}` //if selectedHobby = true / url is this
-             : `/api/hobbies`; //if not this
+            const method = selectedHobby ? "PUT" : "POST";
+            const url = selectedHobby ? `/api/hobbies/${selectedHobby._id}` : "/api/hobbies";
             const response = await fetch(url, {
                 method: method,
                 headers: {
-                    'Content-Type': 'application/json'
+                    "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
                     name: hobby.name,
@@ -19263,41 +19245,55 @@ const Dashboard = ({ user, onLogout })=>{
                 })
             });
             if (response.ok) {
-                const data = await response.json(); //convert the response to json
-                console.log('Hobby saved successfully:', data); //debug message
-                if (selectedHobby) setHobbies((hobbies)=>hobbies.map((h)=>h._id === selectedHobby._id ? data.hobby : h)); //going through hobbies if a hobby is matched we replace that with new one
-                else setHobbies([
-                    ...hobbies,
-                    data.hobby
-                ]); // else add the hobby to the array of the hobbies
-                setShowForm(false); // Close the form after saving
-                setSelectedHobby(null); // Reset selected hobby
-            } else console.error('Failed to save hobby');
+                const hobbydata = await response.json();
+                const hobby = hobbydata.data;
+                console.log("Hobby saved successfully:", JSON.stringify(hobby, null, 2));
+                setHobbies((prevHobbies)=>{
+                    if (selectedHobby) return prevHobbies.map((h)=>h._id === selectedHobby._id ? hobby : h);
+                    else return [
+                        ...prevHobbies,
+                        hobby
+                    ];
+                });
+                setShowForm(false);
+                setSelectedHobby(null);
+            } else console.error("Failed to save hobby");
         } catch (error) {
-            console.error('Error saving hobby:', error);
+            console.error("Error saving hobby:", error);
         }
     };
-    // Handle selecting a hobby for editing or progress tracking
-    const handleSelectHobby = (hobby)=>{
-        setSelectedHobby(hobby);
-        setShowForm(true); // Show form to edit hobby
+    const handleDeleteHobby = async (hobbyId)=>{
+        try {
+            const response = await fetch(`/api/hobbies/${hobbyId}`, {
+                method: "DELETE"
+            });
+            if (!response.ok) throw new Error("Failed to delete hobby");
+            setHobbies((prevHobbies)=>prevHobbies.filter((hobby)=>hobby._id !== hobbyId));
+        } catch (error) {
+            console.error("Error deleting hobby:", error);
+        }
     };
-    // Toggle progress modal
+    const handleSelectHobby = (hobby)=>{
+        console.log("Selected Hobby:", hobby);
+        setSelectedHobby(hobby);
+        setShowForm(true);
+    };
     const toggleProgressModal = ()=>{
-        setShowProgressModal(!showProgressModal); //not show progress modal
+        console.log("Toggling progress modal. Current state:", showProgressModal);
+        setShowProgressModal(!showProgressModal);
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "dashboard-container",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
                 children: [
-                    "Welcome to your Dashboard, ",
+                    "Welcome ",
                     user.username,
                     "!"
                 ]
             }, void 0, true, {
                 fileName: "src/components/Dashboard.js",
-                lineNumber: 91,
+                lineNumber: 112,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -19307,41 +19303,42 @@ const Dashboard = ({ user, onLogout })=>{
                 ]
             }, void 0, true, {
                 fileName: "src/components/Dashboard.js",
-                lineNumber: 92,
+                lineNumber: 113,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "dashboard-content",
                 children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                        children: "Your Hobbies"
-                    }, void 0, false, {
-                        fileName: "src/components/Dashboard.js",
-                        lineNumber: 95,
-                        columnNumber: 9
-                    }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         onClick: ()=>setShowForm(true),
                         className: "btn add-hobby-btn",
                         children: "Add Hobby"
                     }, void 0, false, {
                         fileName: "src/components/Dashboard.js",
-                        lineNumber: 96,
+                        lineNumber: 116,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                        children: "Your Hobbies"
+                    }, void 0, false, {
+                        fileName: "src/components/Dashboard.js",
+                        lineNumber: 120,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _hobbyListDefault.default), {
                         hobbies: hobbies,
                         onSelectHobby: handleSelectHobby,
-                        onTrackProgress: toggleProgressModal
+                        onTrackProgress: toggleProgressModal,
+                        onDeleteHobby: handleDeleteHobby
                     }, void 0, false, {
                         fileName: "src/components/Dashboard.js",
-                        lineNumber: 98,
+                        lineNumber: 122,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Dashboard.js",
-                lineNumber: 94,
+                lineNumber: 115,
                 columnNumber: 7
             }, undefined),
             showForm && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _addEditHobbyFormDefault.default), {
@@ -19351,7 +19348,7 @@ const Dashboard = ({ user, onLogout })=>{
                 onClose: ()=>setShowForm(false)
             }, void 0, false, {
                 fileName: "src/components/Dashboard.js",
-                lineNumber: 106,
+                lineNumber: 131,
                 columnNumber: 9
             }, undefined),
             showProgressModal && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _progressDefault.default), {
@@ -19359,8 +19356,8 @@ const Dashboard = ({ user, onLogout })=>{
                 onClose: toggleProgressModal
             }, void 0, false, {
                 fileName: "src/components/Dashboard.js",
-                lineNumber: 115,
-                columnNumber: 9
+                lineNumber: 139,
+                columnNumber: 29
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                 onClick: onLogout,
@@ -19368,13 +19365,13 @@ const Dashboard = ({ user, onLogout })=>{
                 children: "Log Out"
             }, void 0, false, {
                 fileName: "src/components/Dashboard.js",
-                lineNumber: 121,
+                lineNumber: 141,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/Dashboard.js",
-        lineNumber: 90,
+        lineNumber: 111,
         columnNumber: 5
     }, undefined);
 };
@@ -19402,79 +19399,96 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-var _s = $RefreshSig$();
-const HobbyList = ({ userId })=>{
-    _s();
-    const [hobbies, setHobbies] = (0, _react.useState)([]);
-    (0, _react.useEffect)(()=>{
-        const fetchHobbies = async ()=>{
-            try {
-                // Using the Fetch API
-                const response = await fetch(`/api/hobbies/${userId}`);
-                // Check if the response is successful (status code 200-299)
-                if (!response.ok) throw new Error('Failed to fetch hobbies');
-                const data = await response.json();
-                setHobbies(data.hobbies);
-            } catch (error) {
-                console.error('Error fetching hobbies:', error);
-            }
-        };
-        fetchHobbies();
-    }, [
-        userId
-    ]);
+const HobbyList = ({ hobbies = [], onSelectHobby, onTrackProgress, onDeleteHobby })=>{
+    if (!Array.isArray(hobbies)) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+        children: "Loading..."
+    }, void 0, false, {
+        fileName: "src/components/HobbyList.js",
+        lineNumber: 4,
+        columnNumber: 39
+    }, undefined); // Prevents errors
+    if (hobbies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+        children: "No hobbies found."
+    }, void 0, false, {
+        fileName: "src/components/HobbyList.js",
+        lineNumber: 6,
+        columnNumber: 36
+    }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
                 children: "Your Hobbies"
             }, void 0, false, {
                 fileName: "src/components/HobbyList.js",
-                lineNumber: 29,
+                lineNumber: 10,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
-                children: hobbies.map((hobby)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                                children: hobby.name
-                            }, void 0, false, {
-                                fileName: "src/components/HobbyList.js",
-                                lineNumber: 33,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                children: hobby.description
-                            }, void 0, false, {
-                                fileName: "src/components/HobbyList.js",
-                                lineNumber: 34,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                children: hobby.progress
-                            }, void 0, false, {
-                                fileName: "src/components/HobbyList.js",
-                                lineNumber: 35,
-                                columnNumber: 13
-                            }, undefined)
-                        ]
-                    }, hobby._id, true, {
+                children: hobbies.map((hobby)=>hobby ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "hobby-container",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                                    children: hobby.name
+                                }, void 0, false, {
+                                    fileName: "src/components/HobbyList.js",
+                                    lineNumber: 16,
+                                    columnNumber: 17
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                    children: hobby.description
+                                }, void 0, false, {
+                                    fileName: "src/components/HobbyList.js",
+                                    lineNumber: 17,
+                                    columnNumber: 17
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    onClick: ()=>onSelectHobby(hobby),
+                                    children: "Edit"
+                                }, void 0, false, {
+                                    fileName: "src/components/HobbyList.js",
+                                    lineNumber: 18,
+                                    columnNumber: 17
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    onClick: ()=>onTrackProgress(hobby),
+                                    children: "Track Progress"
+                                }, void 0, false, {
+                                    fileName: "src/components/HobbyList.js",
+                                    lineNumber: 19,
+                                    columnNumber: 17
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    onClick: ()=>onDeleteHobby(hobby._id),
+                                    children: "Delete"
+                                }, void 0, false, {
+                                    fileName: "src/components/HobbyList.js",
+                                    lineNumber: 20,
+                                    columnNumber: 17
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/HobbyList.js",
+                            lineNumber: 15,
+                            columnNumber: 15
+                        }, undefined)
+                    }, hobby._id, false, {
                         fileName: "src/components/HobbyList.js",
-                        lineNumber: 32,
-                        columnNumber: 11
-                    }, undefined))
+                        lineNumber: 14,
+                        columnNumber: 13
+                    }, undefined) : null)
             }, void 0, false, {
                 fileName: "src/components/HobbyList.js",
-                lineNumber: 30,
+                lineNumber: 11,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/HobbyList.js",
-        lineNumber: 28,
+        lineNumber: 9,
         columnNumber: 5
     }, undefined);
 };
-_s(HobbyList, "7oWbU7J/X33j3Z+Y9Z/TvcLn/RY=");
 _c = HobbyList;
 exports.default = HobbyList;
 var _c;
@@ -19485,7 +19499,7 @@ $RefreshReg$(_c, "HobbyList");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"2nVxP":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2nVxP":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$07b9 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$07b9.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -19505,15 +19519,17 @@ const AddEditHobbyForm = ({ userId, hobby, onSave })=>{
     const [description, setDescription] = (0, _react.useState)(hobby ? hobby.description : '');
     const [progress, setProgress] = (0, _react.useState)(hobby ? hobby.progress : '');
     const handleSave = async ()=>{
+        // Include progress in the data sent to the backend
         const hobbyData = {
             name,
             description,
-            userId
+            userId,
+            progress
         };
         console.log('Saving hobby with data:', hobbyData); // Debugging message
         if (!userId) console.error('User ID is missing!'); // Debugging message if userId is not present
         try {
-            let response;
+            let response; //response variable
             if (hobby) {
                 console.log('Updating existing hobby with ID:', hobby._id); // Debugging message
                 response = await fetch(`/api/hobbies/${hobby._id}`, {
@@ -19534,10 +19550,14 @@ const AddEditHobbyForm = ({ userId, hobby, onSave })=>{
                     body: JSON.stringify(hobbyData)
                 });
             }
+            console.log('API response status:', response.status); // Log the status code for more details
             if (response.ok) {
-                console.log('Hobby saved successfully'); // Debugging message
-                onSave();
-            } else console.error('Failed to save hobby, response:', response); // Debugging message
+                console.log('Hobby saved successfully');
+                const savedHobby = await response.json();
+                //Access the hobby object from data
+                const hobby = savedHobby.data; // Here we access data.data
+                onSave(hobby); // Pass the hobby to the onSave function (Dashboard)
+            } else console.error('Failed to save hobby, response:', response);
         } catch (error) {
             console.error('Error saving hobby:', error); // Debugging message
         }
@@ -19554,7 +19574,7 @@ const AddEditHobbyForm = ({ userId, hobby, onSave })=>{
                 children: hobby ? 'Update Hobby' : 'Add Hobby'
             }, void 0, false, {
                 fileName: "src/components/AddEditHobbyForm.js",
-                lineNumber: 62,
+                lineNumber: 67,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
@@ -19566,7 +19586,7 @@ const AddEditHobbyForm = ({ userId, hobby, onSave })=>{
                                 children: "Hobby Name"
                             }, void 0, false, {
                                 fileName: "src/components/AddEditHobbyForm.js",
-                                lineNumber: 65,
+                                lineNumber: 70,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -19581,13 +19601,13 @@ const AddEditHobbyForm = ({ userId, hobby, onSave })=>{
                                 placeholder: "Enter hobby name"
                             }, void 0, false, {
                                 fileName: "src/components/AddEditHobbyForm.js",
-                                lineNumber: 66,
+                                lineNumber: 71,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/AddEditHobbyForm.js",
-                        lineNumber: 64,
+                        lineNumber: 69,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -19597,7 +19617,7 @@ const AddEditHobbyForm = ({ userId, hobby, onSave })=>{
                                 children: "Hobby Description"
                             }, void 0, false, {
                                 fileName: "src/components/AddEditHobbyForm.js",
-                                lineNumber: 79,
+                                lineNumber: 84,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("textarea", {
@@ -19611,13 +19631,13 @@ const AddEditHobbyForm = ({ userId, hobby, onSave })=>{
                                 placeholder: "Describe your hobby"
                             }, void 0, false, {
                                 fileName: "src/components/AddEditHobbyForm.js",
-                                lineNumber: 80,
+                                lineNumber: 85,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/AddEditHobbyForm.js",
-                        lineNumber: 78,
+                        lineNumber: 83,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -19627,7 +19647,7 @@ const AddEditHobbyForm = ({ userId, hobby, onSave })=>{
                                 children: "Hobby Progress"
                             }, void 0, false, {
                                 fileName: "src/components/AddEditHobbyForm.js",
-                                lineNumber: 92,
+                                lineNumber: 97,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -19642,13 +19662,13 @@ const AddEditHobbyForm = ({ userId, hobby, onSave })=>{
                                 placeholder: "Progress in your hobby"
                             }, void 0, false, {
                                 fileName: "src/components/AddEditHobbyForm.js",
-                                lineNumber: 93,
+                                lineNumber: 98,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/AddEditHobbyForm.js",
-                        lineNumber: 91,
+                        lineNumber: 96,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -19658,19 +19678,19 @@ const AddEditHobbyForm = ({ userId, hobby, onSave })=>{
                         children: hobby ? 'Update Hobby' : 'Add Hobby'
                     }, void 0, false, {
                         fileName: "src/components/AddEditHobbyForm.js",
-                        lineNumber: 105,
+                        lineNumber: 110,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/AddEditHobbyForm.js",
-                lineNumber: 63,
+                lineNumber: 68,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/AddEditHobbyForm.js",
-        lineNumber: 61,
+        lineNumber: 66,
         columnNumber: 5
     }, undefined);
 };
