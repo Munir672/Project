@@ -690,3 +690,7 @@ body {
 h3{
   text-align: center;
 }
+
+ul li{
+  list-style: none;
+}

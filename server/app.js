@@ -139,8 +139,8 @@ connection.then(() => {
 
     try {
       const result = await hobbiesCollection.updateOne(
-        { _id: new ObjectId(id) },
-        { $set: { name, description, progress } }
+        { _id: new ObjectId(id) }, //find the document with that id
+        { $set: { name, description, progress } } //set the things in it
       );
 
       if (result.modifiedCount === 0) {

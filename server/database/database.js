@@ -1,8 +1,5 @@
 import { MongoClient, ServerApiVersion } from 'mongodb';
-import dotenv from 'dotenv';
 
-// Load environment variables from .env file
-dotenv.config();
 
 // Create a new MongoClient using the connection string from the environment variable
 const client = new MongoClient(process.env.connection_string, {
