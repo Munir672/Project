@@ -1,6 +1,5 @@
 import { MongoClient, ServerApiVersion } from 'mongodb';
 
-
 // Create a new MongoClient using the connection string from the environment variable
 const client = new MongoClient(process.env.connection_string, {
   serverApi: {
