@@ -4,7 +4,9 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --env-file=.env --watch app.js"
+    "dev": "node --watch --env-file=.env app.js",
+    "start": "node app.js",
+    "build": "npm install"
   },
   "keywords": [],
   "author": "",
