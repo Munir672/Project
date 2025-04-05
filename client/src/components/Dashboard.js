@@ -9,30 +9,32 @@ const Dashboard = ({ user, onLogout }) => {
   const [showForm, setShowForm] = useState(false);
   const [showProgressModal, setShowProgressModal] = useState(false);
 
-  useEffect(() => {
+  // Function to load hobbies from the backend
+  const loadHobbyList = async () => {
     if (!user || !user._id) {
       console.error("User not available or missing _id");
       return;
     }
 
-    const fetchHobbies = async () => {
-      try {
-        console.log("Fetching hobbies for userId:", user._id);
-        const response = await fetch(`/api/hobbies/${user._id}`);
+    try {
+      console.log("Fetching hobbies for userId:", user._id);
+      const response = await fetch(`/api/hobbies/${user._id}`);
 
-        if (response.ok) {
-          const data = await response.json();
-          console.log("Fetched hobbies:", JSON.stringify(data.hobbies, null, 2));
-          setHobbies(data.hobbies || []);
-        } else {
-          console.error("Failed to fetch hobbies");
-        }
-      } catch (error) {
-        console.error("Error fetching hobbies:", error);
+      if (response.ok) {
+        const data = await response.json();
+        console.log("Fetched hobbies:", JSON.stringify(data.hobbies, null, 2));
+        setHobbies(data.hobbies || []);
+      } else {
+        console.error("Failed to fetch hobbies");
       }
-    };
+    } catch (error) {
+      console.error("Error fetching hobbies:", error);
+    }
+  };
 
-    fetchHobbies();
+  // Load hobbies when the component mounts
+  useEffect(() => {
+    loadHobbyList();
   }, [user._id]);
 
   const handleSaveHobby = async (hobby) => {
@@ -64,6 +66,7 @@ const Dashboard = ({ user, onLogout }) => {
         const hobby = hobbydata.data;
         console.log("Hobby saved successfully:", JSON.stringify(hobby, null, 2));
 
+        // Update the hobbies state after saving the hobby
         setHobbies((prevHobbies) => {
           if (selectedHobby) {
             return prevHobbies.map((h) => (h._id === selectedHobby._id ? hobby : h));
@@ -72,7 +75,12 @@ const Dashboard = ({ user, onLogout }) => {
           }
         });
 
+        // Close the form and refetch hobbies
         setShowForm(false);
+
+        // Refetch the hobbies list to reflect changes
+        loadHobbyList();
+
         setSelectedHobby(null);
       } else {
         console.error("Failed to save hobby");
@@ -90,6 +98,7 @@ const Dashboard = ({ user, onLogout }) => {
         throw new Error("Failed to delete hobby");
       }
 
+      // Remove the deleted hobby from the list
       setHobbies((prevHobbies) => prevHobbies.filter((hobby) => hobby._id !== hobbyId));
     } catch (error) {
       console.error("Error deleting hobby:", error);
@@ -118,6 +127,7 @@ const Dashboard = ({ user, onLogout }) => {
         </button>
 
         <h3>Your Hobbies</h3>
+        <p>Note: There is a bug, for seeing your changes you need to logout and login again.</p>
 
         <HobbyList
           hobbies={hobbies}

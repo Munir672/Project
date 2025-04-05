@@ -651,7 +651,6 @@ body {
   }
 }
 
-
 .hobby-container {
   background-color: #fff;
   padding: 20px;
@@ -693,4 +692,121 @@ h3{
 
 ul li{
   list-style: none;
+}
+
+#hobbiesContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /* This ensures 3 columns */
+  gap: 10px;  /* Adds spacing between the items */
+  margin: 20px;
+}
+
+#hobbiesContainer ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#hobbiesContainer li {
+  background-color: lightblue; /* Example styling for hobbies */
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.hobby-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hobby-container button {
+  margin-top: 10px;
+}
+
+/* Overall Modal Style */
+.progress-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensures the modal is on top */
+}
+
+/* Modal Content Style */
+.progress-modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px; /* Fixed width for modal */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.progress-modal-content h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.progress-modal-content label {
+  font-size: 14px;
+  display: block;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.progress-modal-content input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.progress-modal-content input:focus {
+  outline: none;
+  border-color: #4CAF50;
+}
+
+/* Action Buttons Style */
+.progress-modal-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.progress-modal-actions button {
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.progress-modal-actions button:disabled {
+  cursor: not-allowed;
+  background-color: #ccc;
+}
+
+.progress-modal-actions button:hover:not(:disabled) {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Loading State Styling */
+.progress-modal-actions button[disabled] {
+  background-color: #f44336;
+  color: white;
+}
+
+.progress-modal-actions button:active:not(:disabled) {
+  background-color: #45a049; /* Darker shade for active button */
 }

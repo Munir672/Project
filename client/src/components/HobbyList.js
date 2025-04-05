@@ -8,21 +8,23 @@ const HobbyList = ({ hobbies = [], onSelectHobby, onTrackProgress, onDeleteHobby
   return (
     <div>
       <h2>Your Hobbies</h2>
-      <ul>
-        {hobbies.map((hobby) => 
-          hobby ? ( // Check if hobby is not undefined
-            <li key={hobby._id}>
-              <div className="hobby-container">
-                <h3>{hobby.name}</h3>
-                <p>{hobby.description}</p>
-                <button onClick={() => onSelectHobby(hobby)}>Edit</button>
-                <button onClick={() => onTrackProgress(hobby)}>Track Progress</button>
-                <button onClick={() => onDeleteHobby(hobby._id)}>Delete</button>
-              </div>
-            </li>
-          ) : null
-        )}
-      </ul>
+      <div id="hobbiesContainer">
+        <ul>
+          {hobbies.map((hobby) => 
+            hobby ? ( // Check if hobby is not undefined
+              <li key={hobby._id}>
+                <div className="hobby-container">
+                  <h3>{hobby.name}</h3>
+                  <p>{hobby.description}</p>
+                  <button onClick={() => onSelectHobby(hobby)}>Edit</button>
+                  <button onClick={() => onTrackProgress(hobby)}>Track Progress</button>
+                  <button onClick={() => onDeleteHobby(hobby._id)}>Delete</button>
+                </div>
+              </li>
+            ) : null
+          )}
+        </ul>
+      </div>
     </div>
   );
 };
